@@ -10,8 +10,8 @@
             const message = params.get('message');
 
             // Embed the LWC in the page
-            const lwcElement = document.createElement('my-component');
-            lwcElement.setAttribute('message', message);
+            const lwcElement = document.createElement('c:accountManageApex');
+            lwcElement.setAttribute('msg', message);
             document.querySelector('#lwc-container').appendChild(lwcElement);
         }
     </script>
