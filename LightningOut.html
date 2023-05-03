@@ -9,11 +9,13 @@
             const componentName = 'c:accountManageApex'
             const lightningEndPoint = 'https://informatica29-dev-ed.develop.my.site.com'
             const targetElement = document.querySelector('[data-lightning-out]');
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            console.log('Id-->'+id);       
+        // Setting the id value in component attributes
             const componentAttributes = {
-
-
-            };
-
+            recordId: id
+        };
             $Lightning.use(
                 appName,
                 function(){
