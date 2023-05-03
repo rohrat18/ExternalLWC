@@ -8,7 +8,7 @@
             // Extract the value of the "message" URL parameter
             const params = new URLSearchParams(window.location.search);
             const message = params.get('message');
-
+            console.log('Message'+message);
             // Embed the LWC in the page
             const lwcElement = document.createElement('c:accountManageApex');
             lwcElement.setAttribute('msg', message);
