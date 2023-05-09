@@ -24,23 +24,41 @@
             document.querySelector('#lwc-container').appendChild(lwcElement);
         }
     </script> -->
-    <script>
+<!--     <script>
         function navigate() {
             var id = document.getElementById("id").value;
             var url = "LightningOut.html?id=" + id;
             window.location.href = url;
         }
-    </script>
+    </script> -->
+    function handleSubmit(event) {
+    event.preventDefault(); // prevent form from submitting
+
+    const idInput = document.getElementById('id')
+
+    // Get the input values
+    const id = idInput.value;
+
+    // Pass the input values to the LWC via Lightning Out
+    const lwcElement = document.querySelector('[data-lightning-out]');
+    lwcElement.sendMessage({id});
+  }
 </head>
 <body>
     <h1>Home Page</h1>
     <div><button id="myButton" onclick="location.href='LightningOut.html?id=1'">Navigate</button></div>
     <body>
-        <form>
+<!--         <form>
             <label for="id">Input the Id:</label>
             <input type="number" id="id" name="id">
             <button type="button" onclick="navigate()">Go</button>
+        </form> -->
+        <form onsubmit="handleSubmit(event)">
+              <label for="id">Input the Id:</label>
+              <input type="number" id="id" name="id">
+              <button type="submit">Submit</button>
         </form>
+
     </body>
 </body>
 </html>
