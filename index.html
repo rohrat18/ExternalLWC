@@ -31,7 +31,8 @@
             window.location.href = url;
         }
     </script> -->
-    function handleSubmit(event) {
+    <script>
+        function handleSubmit(event) {
     event.preventDefault(); // prevent form from submitting
 
     const idInput = document.getElementById('id')
@@ -42,6 +43,8 @@
     // Pass the input values to the LWC via Lightning Out
     const lwcElement = document.querySelector('[data-lightning-out]');
     lwcElement.sendMessage({id});
+    </script>
+    
   }
 </head>
 <body>
