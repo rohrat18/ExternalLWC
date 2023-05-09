@@ -24,10 +24,23 @@
             document.querySelector('#lwc-container').appendChild(lwcElement);
         }
     </script> -->
-    
+    <script>
+        function navigate() {
+            var id = document.getElementById("id").value;
+            var url = "LightningOut.html?id=" + id;
+            window.location.href = url;
+        }
+    </script>
 </head>
 <body>
     <h1>Home Page</h1>
     <div><button id="myButton" onclick="location.href='LightningOut.html?id=1'">Navigate</button></div>
+    <body>
+        <form>
+            <label for="id">Input the Id:</label>
+            <input type="number" id="id" name="id">
+            <button type="button" onclick="navigate()">Go</button>
+        </form>
+    </body>
 </body>
 </html>
