@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>My External Webpage</title>
@@ -75,6 +75,59 @@
               <button onclick="submitForm()">Submit</button>
         </form>
 
+    </body>
+</body>
+</html>
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My External Webpage</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        #myButton {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <!-- <script src="https://informatica29-dev-ed.develop.my.site.com/lightning/lightning.out.js"></script>
+    <script>
+        function init() {
+            // Extract the value of the "message" URL parameter
+            const params = new URLSearchParams(window.location.search);
+            const message = params.get('message');
+            console.log('Message'+message);
+            // Embed the LWC in the page
+            const lwcElement = document.createElement('c:accountManageApex');
+            lwcElement.setAttribute('msg', message);
+            document.querySelector('#lwc-container').appendChild(lwcElement);
+        }
+    </script> -->
+    <script>
+        function navigate() {
+            var id = document.getElementById("id").value;
+            var msg = document.getElementById("msg").value;
+            localStorage.setItem("id", id);
+            localStorage.setItem("msg", msg);
+            var url = "LightningOut.html";
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <div><button id="myButton" onclick="location.href='LightningOut.html?id=1'">Navigate</button></div>
+    <body>
+        <form>
+            <label for="id">Input the Id:</label>
+            <input type="number" id="id" name="id"><br>
+            <p></p>
+            <label for="msg">Input the Message:</label>
+            <input type="text" id="msg" name="msg"><br>
+            <button type="button" onclick="navigate()">Go</button>
+        </form>
     </body>
 </body>
 </html>
