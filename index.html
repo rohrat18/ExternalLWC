@@ -33,15 +33,15 @@
     </script> -->
     <script>
         function submitForm() {
-    const name = document.getElementById("id").value;
+    const id = document.getElementById("id").value;
+    window.parent.postMessage({ id }, "https://rohrat18.github.io/ExternalLWC/LightningOut.html");
+//     const lwcComponent = document.createElement("account-manage-apex");
     
-    const lwcComponent = document.createElement("account-manage-apex");
+//     // Send the value to the LWC component using postMessage()
+//     lwcComponent.contentWindow.postMessage({ name }, "*");
     
-    // Send the value to the LWC component using postMessage()
-    lwcComponent.contentWindow.postMessage({ name }, "*");
-    
-    // Add the LWC component to the HTML page
-    document.body.appendChild(lwcComponent);
+//     // Add the LWC component to the HTML page
+//     document.body.appendChild(lwcComponent);
   }
     </script>
     
