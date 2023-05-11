@@ -41,8 +41,8 @@
     const id = idInput.value;
 
     // Pass the input values to the LWC via Lightning Out
-    const lwcElement = document.querySelector('[data-lightning-out]');
-    lwcElement.sendMessage({id});
+    const lwcCmpElement = document.getElementById('lwcElement');
+    lwcCmpElement.sendMessage({id});
     }
     </script>
     
