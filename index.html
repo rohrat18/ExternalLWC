@@ -31,7 +31,7 @@
             window.location.href = url;
         }
     </script> -->
-    <script>
+<!--     <script>
         function submitForm() {
     const id = document.getElementById("id").value;
 //     window.parent.postMessage({ id }, "https://rohrat18.github.io/ExternalLWC/LightningOut.html");
@@ -45,8 +45,15 @@
 //     const lwcComponent = window.frames["lwcIframe"];
     window.parent.postMessage({ id }, "https://rohrat18.github.io/ExternalLWC/LightningOut.html");
 }
-</script>
-    
+</script> -->
+   <script>
+       function submitForm() {
+        const id = document.getElementById("id").value;
+        localStorage.setItem("id", id);
+        window.location.href = "https://rohrat18.github.io/ExternalLWC/LightningOut.html";
+}
+
+   </script>
   
 </head>
 <body>
