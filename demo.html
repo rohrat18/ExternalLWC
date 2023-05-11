@@ -28,7 +28,8 @@
         function navigate() {
             var id = document.getElementById("id").value;
             var msg = document.getElementById("msg").value;
-            var url = "LightningOut.html?id=" + id+"&message=" + msg;
+            localStorage.setItem("id", id);
+            var url = "LightningOut.html";
             window.location.href = url;
         }
     </script>
