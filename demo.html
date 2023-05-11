@@ -47,13 +47,19 @@
 }
 </script> -->
    <script>
-        function submitForm(event) {
-         event.stopPropagation();
-//         const id = document.getElementById("id").value;
-//         localStorage.setItem("id", id);
-//         location.href = "https//google.com";
+//         function submitForm(event) {
+//          event.stopPropagation();
+// //         const id = document.getElementById("id").value;
+// //         localStorage.setItem("id", id);
+// //         location.href = "https//google.com";
            
- }
+//  }
+       function submitForm() {
+            var id = document.getElementById("id").value;
+            var msg = document.getElementById("name").value;
+            var url = "LightningOut.html?id=" + id+"&message=" + msg;
+            window.location.href = url;
+        }
 
    </script>
   
@@ -69,7 +75,7 @@
         </form> -->
 <!--         <iframe id="lwcIframe" src="https://rohrat18.github.io/ExternalLWC/LightningOut.html"></iframe>
  -->
-        <form>
+        <form on>
               <label for="id">Input the Id:</label>
               <input type="number" id="id" name="id">
             <label for="name">Input the Name:</label>
