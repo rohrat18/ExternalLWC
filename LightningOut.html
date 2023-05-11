@@ -18,7 +18,8 @@
             console.log('Id-->'+id);       
         // Setting the id value in component attributes
             const componentAttributes = {
-            recordId: id
+//             recordId: id
+                recordId: event.data.id
         };
             $Lightning.use(
                 appName,
