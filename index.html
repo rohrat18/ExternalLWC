@@ -24,21 +24,35 @@
 //             var url = "LightningOut.html";
 //             window.location.href = url;
 //         }  
-        window.addEventListener('DOMContentLoaded', (event) => {
-      const form = document.querySelector('form');
-      form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent the default form submission behavior
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission behavior
 
-        // Retrieve the form data
-        const formData = new FormData(form);
-        const formDataJSON = JSON.stringify(Object.fromEntries(formData.entries()));
+      // Gather the form data
+      const formData = new FormData(event.target);
+      const formDataJSON = JSON.stringify(Object.fromEntries(formData.entries()));
 
-        // Store the JSON data in local storage
-        localStorage.setItem('formData', formDataJSON);
-
-        // Redirect to another page
-        var url = "LightningOut.html";
-         window.location.href = url;
+      // Send the JSON data to the server
+      fetch('/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: formDataJSON
+      })
+      .then(response => {
+        if (response.ok) {
+          // Form data successfully submitted
+          // Do something, e.g., show a success message
+          console.log('Form data submitted successfully!');
+        } else {
+          // Handle errors if the submission failed
+          // Do something, e.g., show an error message
+          console.error('Error:', response.status);
+        }
+      })
+      .catch(error => {
+        // Handle errors if the fetch request failed
+        console.error('Error:', error);
       });
     });
     </script>
