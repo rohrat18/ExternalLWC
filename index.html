@@ -16,14 +16,31 @@
       }
     </style> 
     <script>
-        function navigate() {
-            var id = document.getElementById("id").value;
-            var msg = document.getElementById("msg").value;
-            localStorage.setItem("id", id);
-            localStorage.setItem("msg", msg);
-            var url = "LightningOut.html";
-            window.location.href = url;
-        }  
+//         function navigate() {
+//             var id = document.getElementById("id").value;
+//             var msg = document.getElementById("msg").value;
+//             localStorage.setItem("id", id);
+//             localStorage.setItem("msg", msg);
+//             var url = "LightningOut.html";
+//             window.location.href = url;
+//         }  
+        window.addEventListener('DOMContentLoaded', (event) => {
+      const form = document.querySelector('form');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Retrieve the form data
+        const formData = new FormData(form);
+        const formDataJSON = JSON.stringify(Object.fromEntries(formData.entries()));
+
+        // Store the JSON data in local storage
+        localStorage.setItem('formData', formDataJSON);
+
+        // Redirect to another page
+        var url = "LightningOut.html";
+         window.location.href = url;
+      });
+    });
     </script>
 </head>
 <body>
@@ -36,7 +53,8 @@
             <p></p>
             <label for="msg">Input the Message:</label>
             <input type="text" id="msg" name="msg"><br>
-            <button type="button" onclick="navigate()">Go</button>
+<!--             <button type="button" onclick="navigate()">Go</button> -->
+            <button type="submit">Go</button>
         </form>
         
     </body>
