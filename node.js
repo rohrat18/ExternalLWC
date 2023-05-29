@@ -4,7 +4,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.post('/destination.html', (req, res) => {
+app.post('/destination', (req, res) => {
   // Retrieve the form data from the request body
   const formData = req.body;
 
