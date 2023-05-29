@@ -5,12 +5,16 @@
         <script src="https://informatica29-dev-ed.develop.my.site.com/lightning/lightning.out.js" type="text/javascript"></script>
         <div id='lwcElement' data-lightning-out="true"></div>
         <script>
-            window.addEventListener('DOMContentLoaded', (event) => {
-      const formDataJSON = localStorage.getItem('formData');
-      const formData = JSON.parse(formDataJSON);
-                
-    });
-            console.log("Data: "+ formData.name);
+             window.addEventListener("DOMContentLoaded", function() {
+    // Retrieve the JSON data from the form input
+    var jsonData = document.querySelector("input[name='jsonData']").value;
+    var formData = JSON.parse(jsonData);
+
+    // Access the form data
+    console.log(formData.id);
+    console.log(formData.email);
+    // Access other form fields as needed
+  });
             const appName = 'c:LightningOutApp'
             const componentName = 'c:accountManageApex'
             const lightningEndPoint = 'https://informatica29-dev-ed.develop.my.site.com'
