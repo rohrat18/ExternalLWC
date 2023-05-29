@@ -24,53 +24,50 @@
 //             var url = "LightningOut.html";
 //             window.location.href = url;
 //         }  
-        document.getElementById('myForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent the default form submission behavior
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission
 
-      // Gather the form data
-      const formData = new FormData(event.target);
-      const formDataJSON = JSON.stringify(Object.fromEntries(formData.entries()));
+    // Create a JSON object with form data
+    var formData = {
+      id: document.getElementById("id").value,
+      email: document.getElementById("email").value,
+      // Add other form fields as properties
+    };
 
-      // Send the JSON data to the server
-      fetch('/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: formDataJSON
-      })
-      .then(response => {
-        if (response.ok) {
-          // Form data successfully submitted
-          // Do something, e.g., show a success message
-          console.log('Form data submitted successfully!');
-        } else {
-          // Handle errors if the submission failed
-          // Do something, e.g., show an error message
-          console.error('Error:', response.status);
-        }
-      })
-      .catch(error => {
-        // Handle errors if the fetch request failed
-        console.error('Error:', error);
-      });
-    });
+    // Create a hidden input field to hold the JSON data
+    var input = document.createElement("input");
+    input.setAttribute("type", "hidden");
+    input.setAttribute("name", "jsonData");
+    input.setAttribute("value", JSON.stringify(formData));
+
+    // Append the hidden input field to the form
+    this.appendChild(input);
+
+    // Submit the form to the destination page
+    this.submit();
+  });
     </script>
 </head>
 <body>
     <h1>Home Page</h1>
     <div><button id="myButton" onclick="location.href='LightningOut.html?id=1'">Navigate</button></div>
     <body>
-        <form id="myform">
+<!--         <form id="myform">
             <label for="id">Input the Id:</label>
             <input type="number" id="id" name="id"><br>
             <p></p>
             <label for="msg">Input the Message:</label>
             <input type="text" id="msg" name="msg"><br>
-<!--             <button type="button" onclick="navigate()">Go</button> -->
+            <button type="button" onclick="navigate()">Go</button>
             <button type="submit">Go</button>
-        </form>
-        
+        </form> -->
+        <form id="myForm" action="destination.html" method="post">
+  <input type="text" id="id" name="id" placeholder="ID">
+  <input type="email" id="email" name="email" placeholder="Email">
+  <!-- Add other form fields as needed -->
+  <button type="submit">Submit</button>
+</form>
+
     </body>
 </body>
 </html>
