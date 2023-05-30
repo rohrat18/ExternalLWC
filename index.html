@@ -24,28 +24,42 @@
 //             var url = "LightningOut.html";
 //             window.location.href = url;
 //         }  
-    document.getElementById("myForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form submission
+//     document.getElementById("myForm").addEventListener("submit", function(event) {
+//     event.preventDefault(); // Prevent form submission
 
-    // Create a JSON object with form data
-    var formData = {
-      id: document.getElementById("id").value,
-      email: document.getElementById("email").value,
-      // Add other form fields as properties
-    };
+//     // Create a JSON object with form data
+//     var formData = {
+//       id: document.getElementById("id").value,
+//       email: document.getElementById("email").value,
+//       // Add other form fields as properties
+//     };
 
-    // Create a hidden input field to hold the JSON data
-    var input = document.createElement("input");
-    input.setAttribute("type", "hidden");
-    input.setAttribute("name", "jsonData");
-    input.setAttribute("value", JSON.stringify(formData));
+//     // Create a hidden input field to hold the JSON data
+//     var input = document.createElement("input");
+//     input.setAttribute("type", "hidden");
+//     input.setAttribute("name", "jsonData");
+//     input.setAttribute("value", JSON.stringify(formData));
 
-    // Append the hidden input field to the form
-    this.appendChild(input);
+//     // Append the hidden input field to the form
+//     this.appendChild(input);
 
-    // Submit the form to the destination page
-    this.submit();
-  });
+//     // Submit the form to the destination page
+//     this.submit();
+//   });
+  function submitForm() {
+  var formData = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    // Add other form fields as properties
+  };
+
+  // Store the JSON data in localStorage
+  localStorage.setItem('formData', JSON.stringify(formData));
+
+  // Redirect to the destination HTML page
+  window.location.href = '/destination';
+}
+
     </script>
 </head>
 <body>
@@ -65,7 +79,8 @@
   <input type="text" id="id" name="id" placeholder="ID">
   <input type="email" id="email" name="email" placeholder="Email">
   <!-- Add other form fields as needed -->
-  <button type="submit">Submit</button>
+<!--   <button type="submit">Submit</button> -->
+  <button type="button" onclick="submitForm()">Submit</button>
 </form>
 
  </body>
