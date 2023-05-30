@@ -23,16 +23,17 @@
             const lightningEndPoint = 'https://informatica29-dev-ed.develop.my.site.com'
             const targetElement = document.querySelector('[data-lightning-out]');
             const urlParams = new URLSearchParams(window.location.search);
-            const id = localStorage.getItem("id");
-            const msg = localStorage.getItem("msg");
+//             const id = localStorage.getItem("id");
+//             const msg = localStorage.getItem("msg");
 
 //             const id = urlParams.get('id');
+            console.log(formData.name+'---'+formData.email);
             console.log('Id-->'+id);
             console.log('Message-->'+msg);
         // Setting the id value in component attributes
             const componentAttributes = {
-             inputid: id,
-             txtmessage:msg
+             inputid: formData.name,
+             txtmessage:formData.email
        
         };
             $Lightning.use(
